@@ -8,6 +8,7 @@ export const typeDefs = gql`
         product(_id: String!) : Product
         product_filter(sellerId: String, type: String) : [Product]
         product_search(name: String, sellerId: String, showInventory: Boolean) : [Product]
+        product_search_rt(name: String, sellerId: String, type: String) : [Product]
     }
 
     type Seller{
@@ -28,5 +29,6 @@ export const typeDefs = gql`
         address: String
         sellerId: String
         seller: Seller
+        coords: [Float]
     }
 `;

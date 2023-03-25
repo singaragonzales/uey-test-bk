@@ -31,6 +31,9 @@ const ProductSchema = new mongoose.Schema(
         address:{
             type: String
         },
+        coords: {
+            type: [Number]
+        }
     }, {
         timestamps: true,
     }

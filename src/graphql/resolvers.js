@@ -10,6 +10,9 @@ export const resolvers = {
         product_filter: async(_, {type}) => await Product.find({type: type}),
         product_search: async(_, {name, sellerId, showInventory}) => {
             return await Product.find({name: {$regex: name, $options: 'i'}, sellerId: {$regex: sellerId, $options: 'i'}, inventory: showInventory ? {$gte: 0} : {$gte: 10}})
+        },
+        product_search_rt: async(_, {name, sellerId, type}) => {
+            return await Product.find({name: {$regex: name, $options: 'i'}, sellerId: {$regex: sellerId, $options: 'i'}, type: "rent_pr"})
         }
     },
     Product:{
